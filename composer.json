@@ -1,0 +1,32 @@
+{
+	"name": "vitalysemenov/oauth",
+	"description": "Social Authentication Extension",
+	"keywords": ["social-login"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Vitaly Semenov",
+			"email": "",
+			"homepage": "https://github.com/VitalySemenov"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Vitaly Semenov\\OAuth\\": "src/"
+		}
+	},
+	"require": {
+		"php": ">=5.5.0",
+		"laravel/socialite": "~2.0",
+		"orchestra/support-providers": "3.2.*"
+	},
+	"require-dev": {
+		"phpspec/phpspec": "~2.1"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "master"
+		}
+	},
+	"minimum-stability": "master"
+}
