@@ -6,7 +6,7 @@
 	"authors": [
 		{
 			"name": "Vitaly Semenov",
-			"email": "",
+			"email": "vitaly.s.semenov@yandex.ru",
 			"homepage": "https://github.com/VitalySemenov"
 		}
 	],
@@ -18,7 +18,8 @@
 	"require": {
 		"php": ">=5.5.0",
 		"laravel/socialite": "~2.0",
-		"orchestra/support-providers": "3.2.*"
+		"orchestra/support-providers": "3.2.*",
+		"orchestra/model": "3.2.x-dev"
 	},
 	"require-dev": {
 		"phpspec/phpspec": "~2.1"
@@ -28,5 +29,5 @@
 			"dev-master": "master"
 		}
 	},
-	"minimum-stability": "master"
+	"minimum-stability": "dev"
 }
