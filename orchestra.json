@@ -1,0 +1,11 @@
+{
+    "name" : "OAuth",
+    "description" : "OAuth Social Authentication Extension for Orchestra Platform",
+    "author" : "Vitaly Semenov",
+    "url" : "https://github.com/VitalySemenov/oauth",
+    "version" : "0.1@dev",
+    "provides" : [
+        "SocialiteProviders\\Manager\\ServiceProvider",
+        "VitalySemenov\\OAuth\\OAuthServiceProvider"
+    ]
+}
