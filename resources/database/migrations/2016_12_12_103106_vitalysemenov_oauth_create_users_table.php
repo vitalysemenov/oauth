@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class VitalySemenovOauthCreateUsersTable extends Migration
 {
-    static $table = 'user_oneauth';
+    static $table = 'user_oauth';
 
     /**
      * Run the migrations.
