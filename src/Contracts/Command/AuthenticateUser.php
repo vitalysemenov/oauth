@@ -7,7 +7,7 @@ interface AuthenticateUser
     /**
      * Execute user authentication.
      *
-     * @param \Orchestra\OneAuth\Contracts\Listener\ConnectUser  $listener
+     * @param \VitalySemenov\OAuth\Contracts\Listener\ConnectUser  $listener
      * @param string  $type
      * @param bool  $hasCode
      *

@@ -28,6 +28,6 @@ class UserLoggedOut
      */
     public function handle()
     {
-        $this->session->forget('orchestra.oneauth');
+        $this->session->forget('authentication.social.oauth');
     }
 }

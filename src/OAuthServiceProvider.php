@@ -12,7 +12,7 @@ class OAuthServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app['events']->listen('auth.login', 'VitalySemenov\OAuth\Handlers\UserLoggedIn');
-        $this->app['events']->listen('orchestra.oneauth.user: saved', 'VitalySemenov\OAuth\Handlers\UserConnected');
+        $this->app['events']->listen('authentication.social.oauth.user: saved', 'VitalySemenov\OAuth\Handlers\UserConnected');
         $this->app['events']->listen('auth.logout', 'VitalySemenov\OAuth\Handlers\UserLoggedOut');
     }
 }

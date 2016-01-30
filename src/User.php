@@ -9,7 +9,7 @@ class User extends Eloquent
      *
      * @var string
      */
-    protected $table = 'user_oneauth';
+    protected $table = 'user_oauth';
 
     /**
      * The attributes that are mass assignable.
@@ -23,7 +23,7 @@ class User extends Eloquent
      *
      * @param  mixed  $value
      *
-     * @return \Orchestra\OneAuth\Token
+     * @return \VitalySemenov\OAuth\Token
      */
     public function getTokenAttribute($value)
     {
@@ -37,7 +37,7 @@ class User extends Eloquent
     /**
      * Set token attribute using mutator.
      *
-     * @param  \Orchestra\OneAuth\Token  $token
+     * @param  \VitalySemenov\OAuth\Token  $token
      *
      * @return void
      */

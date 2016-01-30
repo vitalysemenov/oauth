@@ -19,7 +19,9 @@
 		"php": ">=5.5.0",
 		"laravel/socialite": "~2.0",
 		"orchestra/support-providers": "3.2.*",
-		"orchestra/model": "3.2.x-dev"
+		"orchestra/model": "3.2.x-dev",
+		"socialiteproviders/yandex" :"^1.1",
+        "socialiteproviders/vkontakte": "^1.1"
 	},
 	"require-dev": {
 		"phpspec/phpspec": "~2.1"

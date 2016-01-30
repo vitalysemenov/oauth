@@ -7,6 +7,7 @@ use Laravel\Socialite\Contracts\User;
 use VitalySemenov\OAuth\User as Eloquent;
 use Laravel\Socialite\Contracts\Provider;
 use Illuminate\Contracts\Events\Dispatcher;
+use SocialiteProviders\Manager\SocialiteWasCalled;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use VitalySemenov\OAuth\Contracts\Listener\ConnectUser;
 use VitalySemenov\OAuth\Contracts\Command\AuthenticateUser as Command;
@@ -49,8 +50,16 @@ class AuthenticateUser implements Command
      * @param \Illuminate\Session\Store  $session
      * @param \Laravel\Socialite\Contracts\Factory  $socialite
      */
-    public function __construct(Guard $auth, Dispatcher $dispatcher, Store $session, Socialite $socialite)
+
+
+    public function __construct(Guard $auth, Dispatcher $dispatcher, Store $session, SocialiteWasCalled $socialiteWasCalled, Socialite $socialite)
     {
+
+        $socialiteWasCalled->extendSocialite('yandex', 'SocialiteProviders\Yandex\Provider');
+        $socialiteWasCalled->extendSocialite('vkontakte', 'SocialiteProviders\VKontakte\Provider');
+
+        $dispatcher->fire($socialiteWasCalled);
+
         $this->auth       = $auth;
         $this->dispatcher = $dispatcher;
         $this->session    = $session;
@@ -60,7 +69,7 @@ class AuthenticateUser implements Command
     /**
      * Execute user authentication.
      *
-     * @param \Orchestra\OneAuth\Contracts\Listener\ConnectUser  $listener
+     * @param \VitalySemenov\OAuth\Contracts\Listener\ConnectUser  $listener
      * @param string  $type
      * @param bool  $hasCode
      *
@@ -76,7 +85,7 @@ class AuthenticateUser implements Command
 
         $data = $this->getUserData($provider, $type);
 
-        $this->session->put('orchestra.oneauth', $data);
+        $this->session->put('authentication.social.oauth', $data);
 
         return $listener->userHasConnected($data, $this->auth);
     }
@@ -109,7 +118,7 @@ class AuthenticateUser implements Command
 
         $data = ['provider' => $type, 'user' => $user];
 
-        $this->dispatcher->fire('orchestra.oneauth.user: saved', [$model, $data, $this->auth]);
+        $this->dispatcher->fire('authentication.social.oauth.user: saved', [$model, $data, $this->auth]);
 
         return $data;
     }
@@ -120,7 +129,7 @@ class AuthenticateUser implements Command
      * @param  \Laravel\Socialite\Contracts\User  $user
      * @param  string  $type
      *
-     * @return \Orchestra\OneAuth\User
+     * @return \VitalySemenov\OAuth\User
      */
     protected function attemptToConnectUser(User $user, $type)
     {
@@ -140,7 +149,7 @@ class AuthenticateUser implements Command
      * @param  \Laravel\Socialite\Contracts\User  $user
      * @param  string  $type
      *
-     * @return \Orchestra\OneAuth\User
+     * @return \VitalySemenov\OAuth\User
      */
     protected function getClientOrCreate(User $user, $type)
     {

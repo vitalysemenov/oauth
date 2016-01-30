@@ -32,7 +32,7 @@ class UserLoggedIn
      */
     public function handle(Authenticatable $user)
     {
-        $social = $this->session->get('orchestra.oneauth');
+        $social = $this->session->get('authentication.social.oauth');
 
         if (is_null($social)) {
             return ;

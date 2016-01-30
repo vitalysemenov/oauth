@@ -8,7 +8,7 @@ class UserConnected
     /**
      * Handle user connected via social auth.
      *
-     * @param  \Orchestra\OneAuth\User  $model
+     * @param  \VitalySemenov\OAuth\User  $model
      * @param  array  $data
      * @param  \Illuminate\Contracts\Auth\Guard  $auth
      *
