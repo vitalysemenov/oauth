@@ -1,4 +1,4 @@
-<?php namespace VitalySemenov\OAuth\Handlers;
+<?php namespace Orchestra\OAuth\Handlers;
 
 use Illuminate\Session\Store;
 

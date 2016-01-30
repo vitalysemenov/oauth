@@ -1,4 +1,4 @@
-<?php namespace VitalySemenov\OAuth;
+<?php namespace Orchestra\OAuth;
 
 use Illuminate\Support\Fluent;
 

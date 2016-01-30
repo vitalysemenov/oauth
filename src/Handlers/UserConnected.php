@@ -1,14 +1,14 @@
-<?php namespace VitalySemenov\OAuth\Handlers;
+<?php namespace Orchestra\OAuth\Handlers;
 
 use Illuminate\Contracts\Auth\Guard;
-use VitalySemenov\OAuth\User as Eloquent;
+use Orchestra\OAuth\User as Eloquent;
 
 class UserConnected
 {
     /**
      * Handle user connected via social auth.
      *
-     * @param  \VitalySemenov\OAuth\User  $model
+     * @param  \Orchestra\OAuth\User  $model
      * @param  array  $data
      * @param  \Illuminate\Contracts\Auth\Guard  $auth
      *

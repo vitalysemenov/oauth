@@ -1,13 +1,13 @@
-<?php namespace VitalySemenov\OAuth\Contracts\Command;
+<?php namespace Orchestra\OAuth\Contracts\Command;
 
-use VitalySemenov\OAuth\Contracts\Listener\ConnectUser;
+use Orchestra\OAuth\Contracts\Listener\ConnectUser;
 
 interface AuthenticateUser
 {
     /**
      * Execute user authentication.
      *
-     * @param \VitalySemenov\OAuth\Contracts\Listener\ConnectUser  $listener
+     * @param \Orchestra\OAuth\Contracts\Listener\ConnectUser  $listener
      * @param string  $type
      * @param bool  $hasCode
      *

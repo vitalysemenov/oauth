@@ -1,16 +1,16 @@
-<?php namespace VitalySemenov\OAuth\Processor;
+<?php namespace Orchestra\OAuth\Processor;
 
-use VitalySemenov\OAuth\Token;
+use Orchestra\OAuth\Token;
 use Illuminate\Session\Store;
 use Illuminate\Contracts\Auth\Guard;
 use Laravel\Socialite\Contracts\User;
-use VitalySemenov\OAuth\User as Eloquent;
+use Orchestra\OAuth\User as Eloquent;
 use Laravel\Socialite\Contracts\Provider;
 use Illuminate\Contracts\Events\Dispatcher;
 use SocialiteProviders\Manager\SocialiteWasCalled;
 use Laravel\Socialite\Contracts\Factory as Socialite;
-use VitalySemenov\OAuth\Contracts\Listener\ConnectUser;
-use VitalySemenov\OAuth\Contracts\Command\AuthenticateUser as Command;
+use Orchestra\OAuth\Contracts\Listener\ConnectUser;
+use Orchestra\OAuth\Contracts\Command\AuthenticateUser as Command;
 
 class AuthenticateUser implements Command
 {
@@ -69,7 +69,7 @@ class AuthenticateUser implements Command
     /**
      * Execute user authentication.
      *
-     * @param \VitalySemenov\OAuth\Contracts\Listener\ConnectUser  $listener
+     * @param \Orchestra\OAuth\Contracts\Listener\ConnectUser  $listener
      * @param string  $type
      * @param bool  $hasCode
      *
@@ -129,7 +129,7 @@ class AuthenticateUser implements Command
      * @param  \Laravel\Socialite\Contracts\User  $user
      * @param  string  $type
      *
-     * @return \VitalySemenov\OAuth\User
+     * @return \Orchestra\OAuth\User
      */
     protected function attemptToConnectUser(User $user, $type)
     {
@@ -149,7 +149,7 @@ class AuthenticateUser implements Command
      * @param  \Laravel\Socialite\Contracts\User  $user
      * @param  string  $type
      *
-     * @return \VitalySemenov\OAuth\User
+     * @return \Orchestra\OAuth\User
      */
     protected function getClientOrCreate(User $user, $type)
     {

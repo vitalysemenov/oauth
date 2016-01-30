@@ -1,6 +1,6 @@
-<?php namespace VitalySemenov\OAuth\Handlers;
+<?php namespace Orchestra\OAuth\Handlers;
 
-use VitalySemenov\OAuth\User;
+use Orchestra\OAuth\User;
 use Illuminate\Session\Store;
 use Illuminate\Contracts\Auth\Authenticatable;
 

@@ -1,4 +1,4 @@
-<?php namespace VitalySemenov\OAuth;
+<?php namespace Orchestra\OAuth;
 
 use Orchestra\Model\Eloquent;
 
@@ -23,7 +23,7 @@ class User extends Eloquent
      *
      * @param  mixed  $value
      *
-     * @return \VitalySemenov\OAuth\Token
+     * @return \Orchestra\OAuth\Token
      */
     public function getTokenAttribute($value)
     {
@@ -37,7 +37,7 @@ class User extends Eloquent
     /**
      * Set token attribute using mutator.
      *
-     * @param  \VitalySemenov\OAuth\Token  $token
+     * @param  \Orchestra\OAuth\Token  $token
      *
      * @return void
      */

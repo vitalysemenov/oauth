@@ -1,4 +1,4 @@
-<?php namespace VitalySemenov\OAuth;
+<?php namespace Orchestra\OAuth;
 
 use Orchestra\Support\Providers\ServiceProvider;
 
@@ -11,8 +11,8 @@ class OAuthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['events']->listen('auth.login', 'VitalySemenov\OAuth\Handlers\UserLoggedIn');
-        $this->app['events']->listen('authentication.social.oauth.user: saved', 'VitalySemenov\OAuth\Handlers\UserConnected');
-        $this->app['events']->listen('auth.logout', 'VitalySemenov\OAuth\Handlers\UserLoggedOut');
+        $this->app['events']->listen('auth.login', 'Orchestra\OAuth\Handlers\UserLoggedIn');
+        $this->app['events']->listen('authentication.social.oauth.user: saved', 'Orchestra\OAuth\Handlers\UserConnected');
+        $this->app['events']->listen('auth.logout', 'Orchestra\OAuth\Handlers\UserLoggedOut');
     }
 }

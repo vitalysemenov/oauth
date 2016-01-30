@@ -1,4 +1,4 @@
-<?php namespace VitalySemenov\OAuth\Contracts\Listener;
+<?php namespace Orchestra\OAuth\Contracts\Listener;
 
 use Illuminate\Contracts\Auth\Guard;
 
