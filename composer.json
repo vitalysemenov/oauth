@@ -20,6 +20,7 @@
 		"laravel/socialite": "~2.0",
 		"orchestra/support-providers": "3.2.*",
 		"orchestra/model": "3.2.x-dev",
+        "socialiteproviders/manager": "~1.0",
 		"socialiteproviders/yandex" :"^1.1",
         "socialiteproviders/vkontakte": "^1.1"
 	},
