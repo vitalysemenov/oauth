@@ -1,16 +1,18 @@
 <?php namespace Orchestra\OAuth\Processor;
 
-use Orchestra\OAuth\Token;
+
 use Illuminate\Session\Store;
 use Illuminate\Contracts\Auth\Guard;
-use Laravel\Socialite\Contracts\User;
-use Orchestra\OAuth\User as Eloquent;
-use Laravel\Socialite\Contracts\Provider;
 use Illuminate\Contracts\Events\Dispatcher;
-use SocialiteProviders\Manager\SocialiteWasCalled;
-use Laravel\Socialite\Contracts\Factory as Socialite;
+
+use Vitalias\Socials\Contracts\User;
+use Vitalias\Socials\Contracts\Provider;
+use Vitalias\Socials\Facades\SocialService as SocialService;
+
+use Orchestra\OAuth\Token;
 use Orchestra\OAuth\Contracts\Listener\ConnectUser;
 use Orchestra\OAuth\Contracts\Command\AuthenticateUser as Command;
+use Orchestra\OAuth\User as Eloquent;
 
 class AuthenticateUser implements Command
 {
@@ -40,7 +42,7 @@ class AuthenticateUser implements Command
      *
      * @var \Laravel\Socialite\Contracts\Factory
      */
-    protected $socialite;
+    protected $socialService;
 
     /**
      * Construct a new authenticate user processor.
@@ -48,22 +50,18 @@ class AuthenticateUser implements Command
      * @param \Illuminate\Contracts\Auth\Guard  $auth
      * @param \Illuminate\Contracts\Events\Dispatcher  $dispatcher
      * @param \Illuminate\Session\Store  $session
-     * @param \Laravel\Socialite\Contracts\Factory  $socialite
+     * @param \Laravel\Socialite\Contracts\Factory  $socialService
      */
 
 
-    public function __construct(Guard $auth, Dispatcher $dispatcher, Store $session, SocialiteWasCalled $socialiteWasCalled, Socialite $socialite)
+    public function __construct(Guard $auth, Dispatcher $dispatcher, Store $session, SocialService $socialService)
     {
 
-        $socialiteWasCalled->extendSocialite('yandex', 'SocialiteProviders\Yandex\Provider');
-        $socialiteWasCalled->extendSocialite('vkontakte', 'SocialiteProviders\VKontakte\Provider');
-
-        $dispatcher->fire($socialiteWasCalled);
 
         $this->auth       = $auth;
         $this->dispatcher = $dispatcher;
         $this->session    = $session;
-        $this->socialite  = $socialite;
+        $this->socialService  = $socialService;
     }
 
     /**
@@ -77,7 +75,7 @@ class AuthenticateUser implements Command
      */
     public function execute(ConnectUser $listener, $type, $hasCode = false)
     {
-        $provider = $this->socialite->with($type);
+        $provider = $this->socialService->with($type);
 
         if (! $hasCode) {
             return $this->getAuthorizationFirst($provider);

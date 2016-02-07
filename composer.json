@@ -3,11 +3,37 @@
 	"description": "Social Authentication Extension",
 	"keywords": ["social-login"],
 	"license": "MIT",
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "vitalias/socialservices",
+				"version": "0.1",
+				"source": {
+					"url": "https://github.com/vitalysemenov/socialservice",
+					"type": "git",
+					"reference": "origin/master"
+				},
+				"autoload": {
+					"psr-4": {
+						"Vitalias\\Socials\\": "src/"
+					}
+				},
+				"require": {
+					"php": ">=5.4.0",
+					"illuminate/contracts": "~5.0",
+					"illuminate/http": "~5.0",
+					"illuminate/support": "~5.0",
+					"guzzlehttp/guzzle": "~5.0|~6.0"
+				}
+			}
+		}
+	],
 	"authors": [
 		{
 			"name": "Vitaly Semenov",
 			"email": "vitaly.s.semenov@yandex.ru",
-			"homepage": "https://github.com/VitalySemenov"
+			"homepage": "https://github.com/vitalysemenov"
 		}
 	],
 	"autoload": {
@@ -17,12 +43,9 @@
 	},
 	"require": {
 		"php": ">=5.5.0",
-		"laravel/socialite": "~2.0",
+		"vitalias/socialservices": "0.1",
 		"orchestra/support-providers": "3.2.*",
-		"orchestra/model": "3.2.x-dev",
-		"socialiteproviders/manager": "~1.0",
-		"socialiteproviders/yandex" :"^1.1",
-		"socialiteproviders/vkontakte": "^1.1"
+		"orchestra/model": "3.2.x-dev"
 	},
 	"require-dev": {
 		"phpspec/phpspec": "~2.1"
