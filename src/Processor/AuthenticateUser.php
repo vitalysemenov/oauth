@@ -7,7 +7,7 @@ use Illuminate\Contracts\Events\Dispatcher;
 
 use Vitalias\Socials\Contracts\User;
 use Vitalias\Socials\Contracts\Provider;
-use Vitalias\Socials\Facades\SocialService as SocialService;
+use Vitalias\Socials\Facades\SocialServices as SocialService;
 
 use Orchestra\OAuth\Token;
 use Orchestra\OAuth\Contracts\Listener\ConnectUser;
