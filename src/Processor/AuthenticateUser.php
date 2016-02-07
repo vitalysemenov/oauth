@@ -7,7 +7,7 @@ use Illuminate\Contracts\Events\Dispatcher;
 
 use Vitalias\Socials\Contracts\User;
 use Vitalias\Socials\Contracts\Provider;
-use Vitalias\Socials\Facades\SocialServices as SocialService;
+use Vitalias\Socials\Contracts\Factory as SocialService;
 
 use Orchestra\OAuth\Token;
 use Orchestra\OAuth\Contracts\Listener\ConnectUser;
@@ -40,7 +40,7 @@ class AuthenticateUser implements Command
     /**
      * The socialite implementation.
      *
-     * @var \Laravel\Socialite\Contracts\Factory
+     * @var \Vitalias\Socials\Contracts\Factory
      */
     protected $socialService;
 
@@ -50,7 +50,7 @@ class AuthenticateUser implements Command
      * @param \Illuminate\Contracts\Auth\Guard  $auth
      * @param \Illuminate\Contracts\Events\Dispatcher  $dispatcher
      * @param \Illuminate\Session\Store  $session
-     * @param \Laravel\Socialite\Contracts\Factory  $socialService
+     * @param \Vitalias\Socials\Contracts\Factory  $socialService
      */
 
 
